@@ -1,0 +1,123 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-meter-import-heading" data-cy="MeterImportCreateUpdateHeading" jhiTranslate="myApp.meterImport.home.createOrEditLabel">
+        Create or edit a Meter Import
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.provider" for="field_provider">Provider</label>
+          <input type="text" class="form-control" name="provider" id="field_provider" data-cy="provider" formControlName="provider" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.utility" for="field_utility">Utility</label>
+          <select class="form-control" name="utility" formControlName="utility" id="field_utility" data-cy="utility">
+            <option [ngValue]="null">{{ 'myApp.Utility.null' | translate }}</option>
+            <option *ngFor="let utility of utilityValues" [value]="utility">{{ 'myApp.Utility.' + utility | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.namespace" for="field_namespace">Namespace</label>
+          <input type="text" class="form-control" name="namespace" id="field_namespace" data-cy="namespace" formControlName="namespace" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.clientRef" for="field_clientRef">Client Ref</label>
+          <input type="text" class="form-control" name="clientRef" id="field_clientRef" data-cy="clientRef" formControlName="clientRef" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.meterName" for="field_meterName">Meter Name</label>
+          <input type="text" class="form-control" name="meterName" id="field_meterName" data-cy="meterName" formControlName="meterName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.contactEmail" for="field_contactEmail">Contact Email</label>
+          <input
+            type="text"
+            class="form-control"
+            name="contactEmail"
+            id="field_contactEmail"
+            data-cy="contactEmail"
+            formControlName="contactEmail"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.ownership" for="field_ownership">Ownership</label>
+          <input type="text" class="form-control" name="ownership" id="field_ownership" data-cy="ownership" formControlName="ownership" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.owner" for="field_owner">Owner</label>
+          <input type="text" class="form-control" name="owner" id="field_owner" data-cy="owner" formControlName="owner" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.postcode" for="field_postcode">Postcode</label>
+          <input type="text" class="form-control" name="postcode" id="field_postcode" data-cy="postcode" formControlName="postcode" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.addresslines" for="field_addresslines">Addresslines</label>
+          <input
+            type="text"
+            class="form-control"
+            name="addresslines"
+            id="field_addresslines"
+            data-cy="addresslines"
+            formControlName="addresslines"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.lat" for="field_lat">Lat</label>
+          <input type="number" class="form-control" name="lat" id="field_lat" data-cy="lat" formControlName="lat" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.lon" for="field_lon">Lon</label>
+          <input type="number" class="form-control" name="lon" id="field_lon" data-cy="lon" formControlName="lon" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.meterImport.classifications" for="field_classifications">Classifications</label>
+          <input
+            type="text"
+            class="form-control"
+            name="classifications"
+            id="field_classifications"
+            data-cy="classifications"
+            formControlName="classifications"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

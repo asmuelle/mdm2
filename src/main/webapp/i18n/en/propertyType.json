@@ -1,0 +1,26 @@
+{
+  "myApp": {
+    "propertyType": {
+      "home": {
+        "title": "Property Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Property Type",
+        "createOrEditLabel": "Create or edit a Property Type",
+        "notFound": "No Property Types found"
+      },
+      "created": "A new Property Type is created with identifier {{ param }}",
+      "updated": "A Property Type is updated with identifier {{ param }}",
+      "deleted": "A Property Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Property Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Property Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "pattern": "Pattern",
+      "ownershipProperty": "Ownership Property"
+    }
+  }
+}

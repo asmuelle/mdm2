@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Ownership.
+    -->
+    <changeSet id="20230811201315-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="ownership_id"
+                                 baseTableName="rel_ownership__meters"
+                                 constraintName="fk_rel_ownership__meters__ownership_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ownership"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="meters_id"
+                                 baseTableName="rel_ownership__meters"
+                                 constraintName="fk_rel_ownership__meters__meters_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="meter"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="ownership_id"
+                                 baseTableName="rel_ownership__classifications"
+                                 constraintName="fk_rel_ownership__classifications__ownership_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ownership"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="classifications_id"
+                                 baseTableName="rel_ownership__classifications"
+                                 constraintName="fk_rel_ownership__classifications__classifications_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ownership_classification"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="ownership"
+                                 constraintName="fk_ownership__owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="owner"
+                                 />
+    </changeSet>
+</databaseChangeLog>

@@ -17,4 +17,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "mdm-2"
+rootProject.name = "my-app"

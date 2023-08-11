@@ -1,0 +1,25 @@
+{
+  "myApp": {
+    "namespace": {
+      "home": {
+        "title": "Namespaces",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Namespace erstellen",
+        "createOrEditLabel": "Namespace erstellen oder bearbeiten",
+        "notFound": "Keine Namespaces gefunden"
+      },
+      "created": "Namespace erstellt mit ID {{ param }}",
+      "updated": "Namespace aktualisiert mit ID {{ param }}",
+      "deleted": "Namespace gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Namespace {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Namespace"
+      },
+      "id": "ID",
+      "name": "Name",
+      "meter": "Meter"
+    }
+  }
+}

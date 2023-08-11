@@ -1,0 +1,32 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201316",
+  "entityTableName": "waste_tracking_parameters",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "wasteIssueCreationThreshold",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "maxWasteIssueCreationRate",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxActiveWasteIssues",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "autoCreateWasteIssues",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "WasteTrackingParameters",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

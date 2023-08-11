@@ -1,0 +1,25 @@
+{
+  "myApp": {
+    "namespace": {
+      "home": {
+        "title": "Namespaces",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Namespace",
+        "createOrEditLabel": "Create or edit a Namespace",
+        "notFound": "No Namespaces found"
+      },
+      "created": "A new Namespace is created with identifier {{ param }}",
+      "updated": "A Namespace is updated with identifier {{ param }}",
+      "deleted": "A Namespace is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Namespace {{ id }}?"
+      },
+      "detail": {
+        "title": "Namespace"
+      },
+      "id": "ID",
+      "name": "Name",
+      "meter": "Meter"
+    }
+  }
+}

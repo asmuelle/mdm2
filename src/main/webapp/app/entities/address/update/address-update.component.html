@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-address-heading" data-cy="AddressCreateUpdateHeading" jhiTranslate="myApp.address.home.createOrEditLabel">
+        Create or edit a Address
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.address.city" for="field_city">City</label>
+          <input type="text" class="form-control" name="city" id="field_city" data-cy="city" formControlName="city" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.address.postcode" for="field_postcode">Postcode</label>
+          <input type="text" class="form-control" name="postcode" id="field_postcode" data-cy="postcode" formControlName="postcode" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.address.addresslines" for="field_addresslines">Addresslines</label>
+          <input
+            type="text"
+            class="form-control"
+            name="addresslines"
+            id="field_addresslines"
+            data-cy="addresslines"
+            formControlName="addresslines"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.address.lat" for="field_lat">Lat</label>
+          <input type="number" class="form-control" name="lat" id="field_lat" data-cy="lat" formControlName="lat" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.address.lon" for="field_lon">Lon</label>
+          <input type="number" class="form-control" name="lon" id="field_lon" data-cy="lon" formControlName="lon" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.address.ownership" for="field_ownership">Ownership</label>
+          <select
+            class="form-control"
+            id="field_ownership"
+            data-cy="ownership"
+            name="ownership"
+            formControlName="ownership"
+            [compareWith]="compareOwnership"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="ownershipOption" *ngFor="let ownershipOption of ownershipsCollection">{{ ownershipOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.address.country" for="field_country">Country</label>
+          <select
+            class="form-control"
+            id="field_country"
+            data-cy="country"
+            name="country"
+            formControlName="country"
+            [compareWith]="compareCountry"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="countryOption" *ngFor="let countryOption of countriesCollection">{{ countryOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

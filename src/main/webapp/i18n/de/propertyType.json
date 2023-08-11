@@ -1,0 +1,26 @@
+{
+  "myApp": {
+    "propertyType": {
+      "home": {
+        "title": "Property Types",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Property Type erstellen",
+        "createOrEditLabel": "Property Type erstellen oder bearbeiten",
+        "notFound": "Keine Property Types gefunden"
+      },
+      "created": "Property Type erstellt mit ID {{ param }}",
+      "updated": "Property Type aktualisiert mit ID {{ param }}",
+      "deleted": "Property Type gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Property Type {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Property Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "pattern": "Pattern",
+      "ownershipProperty": "Ownership Property"
+    }
+  }
+}

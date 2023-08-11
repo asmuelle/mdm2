@@ -1,0 +1,25 @@
+{
+  "myApp": {
+    "ownershipClassification": {
+      "home": {
+        "title": "Ownership Classifications",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Ownership Classification erstellen",
+        "createOrEditLabel": "Ownership Classification erstellen oder bearbeiten",
+        "notFound": "Keine Ownership Classifications gefunden"
+      },
+      "created": "Ownership Classification erstellt mit ID {{ param }}",
+      "updated": "Ownership Classification aktualisiert mit ID {{ param }}",
+      "deleted": "Ownership Classification gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Ownership Classification {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Ownership Classification"
+      },
+      "id": "ID",
+      "name": "Name",
+      "ownerships": "Ownerships"
+    }
+  }
+}

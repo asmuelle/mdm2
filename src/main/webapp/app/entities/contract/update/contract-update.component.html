@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-contract-heading" data-cy="ContractCreateUpdateHeading" jhiTranslate="myApp.contract.home.createOrEditLabel">
+        Create or edit a Contract
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="myApp.contract.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.contract.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.contract.customerContactName" for="field_customerContactName"
+            >Customer Contact Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerContactName"
+            id="field_customerContactName"
+            data-cy="customerContactName"
+            formControlName="customerContactName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.contract.customerContactAddresslines" for="field_customerContactAddresslines"
+            >Customer Contact Addresslines</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerContactAddresslines"
+            id="field_customerContactAddresslines"
+            data-cy="customerContactAddresslines"
+            formControlName="customerContactAddresslines"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.contract.customerPurchaseNumber" for="field_customerPurchaseNumber"
+            >Customer Purchase Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerPurchaseNumber"
+            id="field_customerPurchaseNumber"
+            data-cy="customerPurchaseNumber"
+            formControlName="customerPurchaseNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.contract.kwiqlyOrderNumber" for="field_kwiqlyOrderNumber"
+            >Kwiqly Order Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="kwiqlyOrderNumber"
+            id="field_kwiqlyOrderNumber"
+            data-cy="kwiqlyOrderNumber"
+            formControlName="kwiqlyOrderNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.contract.basePricePerMonth" for="field_basePricePerMonth"
+            >Base Price Per Month</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="basePricePerMonth"
+            id="field_basePricePerMonth"
+            data-cy="basePricePerMonth"
+            formControlName="basePricePerMonth"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.contract.startDate" for="field_startDate">Start Date</label>
+          <div class="d-flex">
+            <input
+              id="field_startDate"
+              data-cy="startDate"
+              type="datetime-local"
+              class="form-control"
+              name="startDate"
+              formControlName="startDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.contract.endDate" for="field_endDate">End Date</label>
+          <div class="d-flex">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="datetime-local"
+              class="form-control"
+              name="endDate"
+              formControlName="endDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.contract.customer" for="field_customer">Customer</label>
+          <select
+            class="form-control"
+            id="field_customer"
+            data-cy="customer"
+            name="customer"
+            formControlName="customer"
+            [compareWith]="compareCustomer"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="customerOption" *ngFor="let customerOption of customersSharedCollection">{{ customerOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

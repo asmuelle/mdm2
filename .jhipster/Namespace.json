@@ -1,0 +1,24 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201314",
+  "entityTableName": "namespace",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "name": "Namespace",
+  "relationships": [
+    {
+      "otherEntityName": "meter",
+      "otherEntityRelationshipName": "namespace",
+      "relationshipName": "meter",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

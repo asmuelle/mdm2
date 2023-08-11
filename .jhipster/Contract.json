@@ -1,0 +1,62 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201305",
+  "entityTableName": "contract",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerContactName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerContactAddresslines",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerPurchaseNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "kwiqlyOrderNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "basePricePerMonth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Contract",
+  "relationships": [
+    {
+      "otherEntityName": "scope",
+      "otherEntityRelationshipName": "contract",
+      "relationshipName": "scope",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "contract",
+      "relationshipName": "customer",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

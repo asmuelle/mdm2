@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="meterImport">
+      <h2 data-cy="meterImportDetailsHeading"><span jhiTranslate="myApp.meterImport.detail.title">Meter Import</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ meterImport.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.provider">Provider</span></dt>
+        <dd>
+          <span>{{ meterImport.provider }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.utility">Utility</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Utility.' + meterImport.utility }}">{{ meterImport.utility }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.namespace">Namespace</span></dt>
+        <dd>
+          <span>{{ meterImport.namespace }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.clientRef">Client Ref</span></dt>
+        <dd>
+          <span>{{ meterImport.clientRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.meterName">Meter Name</span></dt>
+        <dd>
+          <span>{{ meterImport.meterName }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.contactEmail">Contact Email</span></dt>
+        <dd>
+          <span>{{ meterImport.contactEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.ownership">Ownership</span></dt>
+        <dd>
+          <span>{{ meterImport.ownership }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.owner">Owner</span></dt>
+        <dd>
+          <span>{{ meterImport.owner }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.postcode">Postcode</span></dt>
+        <dd>
+          <span>{{ meterImport.postcode }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.addresslines">Addresslines</span></dt>
+        <dd>
+          <span>{{ meterImport.addresslines }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.lat">Lat</span></dt>
+        <dd>
+          <span>{{ meterImport.lat }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.lon">Lon</span></dt>
+        <dd>
+          <span>{{ meterImport.lon }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meterImport.classifications">Classifications</span></dt>
+        <dd>
+          <span>{{ meterImport.classifications }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/meter-import', meterImport.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

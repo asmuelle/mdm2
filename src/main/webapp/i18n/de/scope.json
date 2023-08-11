@@ -1,0 +1,29 @@
+{
+  "myApp": {
+    "scope": {
+      "home": {
+        "title": "Scopes",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Scope erstellen",
+        "createOrEditLabel": "Scope erstellen oder bearbeiten",
+        "notFound": "Keine Scopes gefunden"
+      },
+      "created": "Scope erstellt mit ID {{ param }}",
+      "updated": "Scope aktualisiert mit ID {{ param }}",
+      "deleted": "Scope gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Scope {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Scope"
+      },
+      "id": "Id",
+      "meterDescription": "Meter Description",
+      "meterName": "Meter Name",
+      "meterUtility": "Meter Utility",
+      "pricePerMonth": "Price Per Month",
+      "contract": "Contract",
+      "service": "Service"
+    }
+  }
+}

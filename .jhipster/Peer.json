@@ -1,0 +1,40 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201308",
+  "entityTableName": "peer",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "utility",
+      "fieldType": "Utility",
+      "fieldValues": "GAS,ELECTRICITY,WATER,HEAT,SOLARHEAT,SOLARPOWER,WIND,COGENPOWER"
+    },
+    {
+      "fieldName": "loadType",
+      "fieldType": "LoadType",
+      "fieldValues": "CHILL,CHILL_PROCESS,HEAT,HEAT_PROCESS,CHILL_HEAT_PROCESS,PROCESS_ONLY"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Peer",
+  "relationships": [
+    {
+      "otherEntityName": "meter",
+      "otherEntityRelationshipName": "peer",
+      "relationshipName": "meter",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "owner",
+      "relationshipName": "owner",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

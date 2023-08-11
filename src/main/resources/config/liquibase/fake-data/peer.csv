@@ -1,0 +1,11 @@
+id;name;utility;load_type
+1;Gloves the;ELECTRICITY;HEAT_PROCESS
+2;feed;SOLARPOWER;HEAT_PROCESS
+3;redundant male Vermont;SOLARPOWER;CHILL_PROCESS
+4;Directives services;WATER;PROCESS_ONLY
+5;Borders;GAS;CHILL
+6;Executive Gasoline;SOLARHEAT;HEAT
+7;grey Versatile framework;ELECTRICITY;CHILL_HEAT_PROCESS
+8;Barthelemy eligendi distributed;WATER;HEAT_PROCESS
+9;blanditiis ugh protocol;WIND;HEAT_PROCESS
+10;Kutch invoice Bicycle;WATER;HEAT

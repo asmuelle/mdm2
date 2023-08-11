@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="peer">
+      <h2 data-cy="peerDetailsHeading"><span jhiTranslate="myApp.peer.detail.title">Peer</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ peer.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.peer.name">Name</span></dt>
+        <dd>
+          <span>{{ peer.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.peer.utility">Utility</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Utility.' + peer.utility }}">{{ peer.utility }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.peer.loadType">Load Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.LoadType.' + peer.loadType }}">{{ peer.loadType }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.peer.owner">Owner</span></dt>
+        <dd>
+          <div *ngIf="peer.owner">
+            <a [routerLink]="['/owner', peer.owner.id, 'view']">{{ peer.owner.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/peer', peer.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

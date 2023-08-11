@@ -1,0 +1,28 @@
+{
+  "myApp": {
+    "peer": {
+      "home": {
+        "title": "Peers",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Peer erstellen",
+        "createOrEditLabel": "Peer erstellen oder bearbeiten",
+        "notFound": "Keine Peers gefunden"
+      },
+      "created": "Peer erstellt mit ID {{ param }}",
+      "updated": "Peer aktualisiert mit ID {{ param }}",
+      "deleted": "Peer gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Peer {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Peer"
+      },
+      "id": "ID",
+      "name": "Name",
+      "utility": "Utility",
+      "loadType": "Load Type",
+      "meter": "Meter",
+      "owner": "Owner"
+    }
+  }
+}

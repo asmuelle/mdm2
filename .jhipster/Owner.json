@@ -1,0 +1,115 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201319",
+  "entityTableName": "owner",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "fullName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ownerKey",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ownerGroup",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "meters",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastWeek",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "beforeLastWeek",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "amr",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastYear",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "contactEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "electricityPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "gasPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "gasStage",
+      "fieldType": "Stage",
+      "fieldValues": "PROSPECT,METERS_LISTED,DEMO,TRIAL,PRODUCTION,TERMINATED"
+    },
+    {
+      "fieldName": "electricityStage",
+      "fieldType": "Stage",
+      "fieldValues": "PROSPECT,METERS_LISTED,DEMO,TRIAL,PRODUCTION,TERMINATED"
+    },
+    {
+      "fieldName": "waterStage",
+      "fieldType": "Stage",
+      "fieldValues": "PROSPECT,METERS_LISTED,DEMO,TRIAL,PRODUCTION,TERMINATED"
+    },
+    {
+      "fieldName": "heatStage",
+      "fieldType": "Stage",
+      "fieldValues": "PROSPECT,METERS_LISTED,DEMO,TRIAL,PRODUCTION,TERMINATED"
+    },
+    {
+      "fieldName": "solarHeat",
+      "fieldType": "Stage",
+      "fieldValues": "PROSPECT,METERS_LISTED,DEMO,TRIAL,PRODUCTION,TERMINATED"
+    },
+    {
+      "fieldName": "solarPowerStage",
+      "fieldType": "Stage",
+      "fieldValues": "PROSPECT,METERS_LISTED,DEMO,TRIAL,PRODUCTION,TERMINATED"
+    },
+    {
+      "fieldName": "windStage",
+      "fieldType": "Stage",
+      "fieldValues": "PROSPECT,METERS_LISTED,DEMO,TRIAL,PRODUCTION,TERMINATED"
+    },
+    {
+      "fieldName": "cogenPowerStage",
+      "fieldType": "Stage",
+      "fieldValues": "PROSPECT,METERS_LISTED,DEMO,TRIAL,PRODUCTION,TERMINATED"
+    }
+  ],
+  "name": "Owner",
+  "relationships": [
+    {
+      "otherEntityName": "peer",
+      "otherEntityRelationshipName": "owner",
+      "relationshipName": "peer",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "ownership",
+      "otherEntityRelationshipName": "owner",
+      "relationshipName": "ownership",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

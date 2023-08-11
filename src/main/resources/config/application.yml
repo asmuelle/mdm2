@@ -89,7 +89,7 @@ management:
 
 spring:
   application:
-    name: mdm2
+    name: myApp
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by gradle when building the JAR file
@@ -135,15 +135,22 @@ spring:
   mvc:
     problemdetails:
       enabled: true
+  security:
+    user:
+      name: admin
+      password: admin
+      roles:
+        - ADMIN
+        - USER
   task:
     execution:
-      thread-name-prefix: mdm-2-task-
+      thread-name-prefix: my-app-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: mdm-2-scheduling-
+      thread-name-prefix: my-app-scheduling-
       pool:
         size: 2
   thymeleaf:
@@ -151,17 +158,6 @@ spring:
   output:
     ansi:
       console-available: true
-  security:
-    oauth2:
-      client:
-        provider:
-          oidc:
-            issuer-uri: http://localhost:9080/realms/jhipster
-        registration:
-          oidc:
-            client-id: web_app
-            client-secret: web_app
-            scope: openid, profile, email, offline_access # last one for refresh tokens
 
 server:
   servlet:
@@ -185,7 +181,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'mdm2App'
+    name: 'myApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #   allowed-origins: "http://localhost:8100,http://localhost:9000"
@@ -195,12 +191,12 @@ jhipster:
   #   allow-credentials: true
   #   max-age: 1800
   mail:
-    from: mdm2@localhost
+    from: myApp@localhost
   api-docs:
     default-include-pattern: ${server.servlet.context-path:}/api/**
     management-include-pattern: ${server.servlet.context-path:}/management/**
-    title: Mdm 2 API
-    description: Mdm 2 API documentation
+    title: My App API
+    description: My App API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:
@@ -210,10 +206,6 @@ jhipster:
     license-url:
   security:
     content-security-policy: "default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:"
-    oauth2:
-      audience:
-        - account
-        - api://default
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class

@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-peer-heading" data-cy="PeerCreateUpdateHeading" jhiTranslate="myApp.peer.home.createOrEditLabel">
+        Create or edit a Peer
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.peer.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.peer.utility" for="field_utility">Utility</label>
+          <select class="form-control" name="utility" formControlName="utility" id="field_utility" data-cy="utility">
+            <option [ngValue]="null">{{ 'myApp.Utility.null' | translate }}</option>
+            <option *ngFor="let utility of utilityValues" [value]="utility">{{ 'myApp.Utility.' + utility | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.peer.loadType" for="field_loadType">Load Type</label>
+          <select class="form-control" name="loadType" formControlName="loadType" id="field_loadType" data-cy="loadType">
+            <option [ngValue]="null">{{ 'myApp.LoadType.null' | translate }}</option>
+            <option *ngFor="let loadType of loadTypeValues" [value]="loadType">{{ 'myApp.LoadType.' + loadType | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.peer.owner" for="field_owner">Owner</label>
+          <select class="form-control" id="field_owner" data-cy="owner" name="owner" formControlName="owner" [compareWith]="compareOwner">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="ownerOption" *ngFor="let ownerOption of ownersSharedCollection">{{ ownerOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

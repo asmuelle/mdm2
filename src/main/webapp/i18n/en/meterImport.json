@@ -1,0 +1,36 @@
+{
+  "myApp": {
+    "meterImport": {
+      "home": {
+        "title": "Meter Imports",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Meter Import",
+        "createOrEditLabel": "Create or edit a Meter Import",
+        "notFound": "No Meter Imports found"
+      },
+      "created": "A new Meter Import is created with identifier {{ param }}",
+      "updated": "A Meter Import is updated with identifier {{ param }}",
+      "deleted": "A Meter Import is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Meter Import {{ id }}?"
+      },
+      "detail": {
+        "title": "Meter Import"
+      },
+      "id": "ID",
+      "provider": "Provider",
+      "utility": "Utility",
+      "namespace": "Namespace",
+      "clientRef": "Client Ref",
+      "meterName": "Meter Name",
+      "contactEmail": "Contact Email",
+      "ownership": "Ownership",
+      "owner": "Owner",
+      "postcode": "Postcode",
+      "addresslines": "Addresslines",
+      "lat": "Lat",
+      "lon": "Lon",
+      "classifications": "Classifications"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "myApp": {
+    "contract": {
+      "home": {
+        "title": "Contracts",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Contract erstellen",
+        "createOrEditLabel": "Contract erstellen oder bearbeiten",
+        "notFound": "Keine Contracts gefunden"
+      },
+      "created": "Contract erstellt mit ID {{ param }}",
+      "updated": "Contract aktualisiert mit ID {{ param }}",
+      "deleted": "Contract gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Contract {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Contract"
+      },
+      "id": "Id",
+      "name": "Name",
+      "customerContactName": "Customer Contact Name",
+      "customerContactAddresslines": "Customer Contact Addresslines",
+      "customerPurchaseNumber": "Customer Purchase Number",
+      "kwiqlyOrderNumber": "Kwiqly Order Number",
+      "basePricePerMonth": "Base Price Per Month",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "scope": "Scope",
+      "customer": "Customer"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "myApp": {
+    "service": {
+      "home": {
+        "title": "Services",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Service erstellen",
+        "createOrEditLabel": "Service erstellen oder bearbeiten",
+        "notFound": "Keine Services gefunden"
+      },
+      "created": "Service erstellt mit ID {{ param }}",
+      "updated": "Service aktualisiert mit ID {{ param }}",
+      "deleted": "Service gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Service {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Service"
+      },
+      "id": "Id",
+      "name": "Name",
+      "scope": "Scope"
+    }
+  }
+}

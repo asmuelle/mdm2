@@ -1,0 +1,21 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201318",
+  "entityTableName": "country",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "isocode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "name": "Country",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

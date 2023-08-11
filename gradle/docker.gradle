@@ -9,7 +9,7 @@ jib {
         }
     }
     to {
-        image = "mdm2:latest"
+        image = "myapp:latest"
     }
     container {
         entrypoint = ["bash", "-c", "/entrypoint.sh"]
