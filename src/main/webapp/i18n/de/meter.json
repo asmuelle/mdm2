@@ -1,0 +1,39 @@
+{
+  "myApp": {
+    "meter": {
+      "home": {
+        "title": "Meters",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Meter erstellen",
+        "createOrEditLabel": "Meter erstellen oder bearbeiten",
+        "notFound": "Keine Meters gefunden"
+      },
+      "created": "Meter erstellt mit ID {{ param }}",
+      "updated": "Meter aktualisiert mit ID {{ param }}",
+      "deleted": "Meter gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Meter {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Meter"
+      },
+      "id": "ID",
+      "name": "Name",
+      "amrWeek": "Amr Week",
+      "amrYear": "Amr Year",
+      "utility": "Utility",
+      "loadType": "Load Type",
+      "price": "Price",
+      "lastReading": "Last Reading",
+      "contactEmail": "Contact Email",
+      "parent": "Parent",
+      "alternative": "Alternative",
+      "peer": "Peer",
+      "provider": "Provider",
+      "namespace": "Namespace",
+      "ownerships": "Ownerships",
+      "meter": "Meter",
+      "meter": "Meter"
+    }
+  }
+}

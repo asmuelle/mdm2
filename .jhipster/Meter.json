@@ -1,0 +1,85 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201310",
+  "entityTableName": "meter",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amrWeek",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "amrYear",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "utility",
+      "fieldType": "Utility",
+      "fieldValues": "GAS,ELECTRICITY,WATER,HEAT,SOLARHEAT,SOLARPOWER,WIND,COGENPOWER"
+    },
+    {
+      "fieldName": "loadType",
+      "fieldType": "LoadType",
+      "fieldValues": "CHILL,CHILL_PROCESS,HEAT,HEAT_PROCESS,CHILL_HEAT_PROCESS,PROCESS_ONLY"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "lastReading",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "contactEmail",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Meter",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "meter",
+      "relationshipName": "parent",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "meter",
+      "relationshipName": "alternative",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "peer",
+      "relationshipName": "peer",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "provider",
+      "relationshipName": "provider",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "namespace",
+      "relationshipName": "namespace",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "ownership",
+      "otherEntityRelationshipName": "meters",
+      "relationshipName": "ownerships",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

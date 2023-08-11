@@ -30,7 +30,7 @@ module.exports = async (config, options, targetOptions) => {
         },
       }),
       new WebpackNotifierPlugin({
-        title: 'Mdm 2',
+        title: 'My App',
         contentImage: path.join(__dirname, 'logo-jhipster.png'),
       })
     );

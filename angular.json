@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mdm-2": {
+    "my-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -76,15 +76,15 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "mdm-2:build:development",
+            "browserTarget": "my-app:build:development",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "mdm-2:build:production"
+              "browserTarget": "my-app:build:production"
             },
             "development": {
-              "browserTarget": "mdm-2:build:development"
+              "browserTarget": "my-app:build:development"
             }
           },
           "defaultConfiguration": "development"

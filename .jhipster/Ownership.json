@@ -1,0 +1,65 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201315",
+  "entityTableName": "ownership",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "clientRef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Ownership",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "ownershipProperty",
+      "otherEntityRelationshipName": "ownership",
+      "relationshipName": "ownershipProperty",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "meter",
+      "otherEntityRelationshipName": "ownerships",
+      "relationshipName": "meters",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "ownershipClassification",
+      "otherEntityRelationshipName": "ownerships",
+      "relationshipName": "classifications",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "ownership",
+      "relationshipName": "address",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "owner",
+      "relationshipName": "owner",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

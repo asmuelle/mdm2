@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="wasteTrackingParameters">
+      <h2 data-cy="wasteTrackingParametersDetailsHeading">
+        <span jhiTranslate="myApp.wasteTrackingParameters.detail.title">Waste Tracking Parameters</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ wasteTrackingParameters.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.wasteTrackingParameters.name">Name</span></dt>
+        <dd>
+          <span>{{ wasteTrackingParameters.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.wasteTrackingParameters.wasteIssueCreationThreshold">Waste Issue Creation Threshold</span></dt>
+        <dd>
+          <span>{{ wasteTrackingParameters.wasteIssueCreationThreshold }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.wasteTrackingParameters.maxWasteIssueCreationRate">Max Waste Issue Creation Rate</span></dt>
+        <dd>
+          <span>{{ wasteTrackingParameters.maxWasteIssueCreationRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.wasteTrackingParameters.maxActiveWasteIssues">Max Active Waste Issues</span></dt>
+        <dd>
+          <span>{{ wasteTrackingParameters.maxActiveWasteIssues }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.wasteTrackingParameters.autoCreateWasteIssues">Auto Create Waste Issues</span></dt>
+        <dd>
+          <span>{{ wasteTrackingParameters.autoCreateWasteIssues }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/waste-tracking-parameters', wasteTrackingParameters.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

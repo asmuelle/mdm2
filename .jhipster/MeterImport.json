@@ -1,0 +1,64 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201309",
+  "entityTableName": "meter_import",
+  "fields": [
+    {
+      "fieldName": "provider",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "utility",
+      "fieldType": "Utility",
+      "fieldValues": "GAS,ELECTRICITY,WATER,HEAT,SOLARHEAT,SOLARPOWER,WIND,COGENPOWER"
+    },
+    {
+      "fieldName": "namespace",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientRef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "meterName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ownership",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "owner",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postcode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addresslines",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lat",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "lon",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "classifications",
+      "fieldType": "String"
+    }
+  ],
+  "name": "MeterImport",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

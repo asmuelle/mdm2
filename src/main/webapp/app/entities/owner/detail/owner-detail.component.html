@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="owner">
+      <h2 data-cy="ownerDetailsHeading"><span jhiTranslate="myApp.owner.detail.title">Owner</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ owner.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.name">Name</span></dt>
+        <dd>
+          <span>{{ owner.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.fullName">Full Name</span></dt>
+        <dd>
+          <span>{{ owner.fullName }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.ownerKey">Owner Key</span></dt>
+        <dd>
+          <span>{{ owner.ownerKey }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.ownerGroup">Owner Group</span></dt>
+        <dd>
+          <span>{{ owner.ownerGroup }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.meters">Meters</span></dt>
+        <dd>
+          <span>{{ owner.meters }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.lastWeek">Last Week</span></dt>
+        <dd>
+          <span>{{ owner.lastWeek }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.beforeLastWeek">Before Last Week</span></dt>
+        <dd>
+          <span>{{ owner.beforeLastWeek }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.amr">Amr</span></dt>
+        <dd>
+          <span>{{ owner.amr }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.lastYear">Last Year</span></dt>
+        <dd>
+          <span>{{ owner.lastYear }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.contactEmail">Contact Email</span></dt>
+        <dd>
+          <span>{{ owner.contactEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.electricityPrice">Electricity Price</span></dt>
+        <dd>
+          <span>{{ owner.electricityPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.gasPrice">Gas Price</span></dt>
+        <dd>
+          <span>{{ owner.gasPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.gasStage">Gas Stage</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Stage.' + owner.gasStage }}">{{ owner.gasStage }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.electricityStage">Electricity Stage</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Stage.' + owner.electricityStage }}">{{ owner.electricityStage }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.waterStage">Water Stage</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Stage.' + owner.waterStage }}">{{ owner.waterStage }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.heatStage">Heat Stage</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Stage.' + owner.heatStage }}">{{ owner.heatStage }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.solarHeat">Solar Heat</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Stage.' + owner.solarHeat }}">{{ owner.solarHeat }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.solarPowerStage">Solar Power Stage</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Stage.' + owner.solarPowerStage }}">{{ owner.solarPowerStage }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.windStage">Wind Stage</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Stage.' + owner.windStage }}">{{ owner.windStage }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.owner.cogenPowerStage">Cogen Power Stage</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Stage.' + owner.cogenPowerStage }}">{{ owner.cogenPowerStage }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/owner', owner.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contract">
+      <h2 data-cy="contractDetailsHeading"><span jhiTranslate="myApp.contract.detail.title">Contract</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="myApp.contract.id">Id</span></dt>
+        <dd>
+          <span>{{ contract.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.contract.name">Name</span></dt>
+        <dd>
+          <span>{{ contract.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.contract.customerContactName">Customer Contact Name</span></dt>
+        <dd>
+          <span>{{ contract.customerContactName }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.contract.customerContactAddresslines">Customer Contact Addresslines</span></dt>
+        <dd>
+          <span>{{ contract.customerContactAddresslines }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.contract.customerPurchaseNumber">Customer Purchase Number</span></dt>
+        <dd>
+          <span>{{ contract.customerPurchaseNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.contract.kwiqlyOrderNumber">Kwiqly Order Number</span></dt>
+        <dd>
+          <span>{{ contract.kwiqlyOrderNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.contract.basePricePerMonth">Base Price Per Month</span></dt>
+        <dd>
+          <span>{{ contract.basePricePerMonth }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.contract.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ contract.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.contract.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ contract.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.contract.customer">Customer</span></dt>
+        <dd>
+          <div *ngIf="contract.customer">
+            <a [routerLink]="['/customer', contract.customer.id, 'view']">{{ contract.customer.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/contract', contract.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

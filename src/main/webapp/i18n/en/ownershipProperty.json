@@ -1,0 +1,26 @@
+{
+  "myApp": {
+    "ownershipProperty": {
+      "home": {
+        "title": "Ownership Properties",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ownership Property",
+        "createOrEditLabel": "Create or edit a Ownership Property",
+        "notFound": "No Ownership Properties found"
+      },
+      "created": "A new Ownership Property is created with identifier {{ param }}",
+      "updated": "A Ownership Property is updated with identifier {{ param }}",
+      "deleted": "A Ownership Property is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ownership Property {{ id }}?"
+      },
+      "detail": {
+        "title": "Ownership Property"
+      },
+      "id": "ID",
+      "value": "Value",
+      "type": "Type",
+      "ownership": "Ownership"
+    }
+  }
+}

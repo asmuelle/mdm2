@@ -1,0 +1,45 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201317",
+  "entityTableName": "address",
+  "fields": [
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postcode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addresslines",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lat",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "lon",
+      "fieldType": "Float"
+    }
+  ],
+  "name": "Address",
+  "relationships": [
+    {
+      "otherEntityName": "ownership",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "ownership",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "country",
+      "relationshipName": "country",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

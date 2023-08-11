@@ -1,0 +1,172 @@
+<div>
+  <h2 id="page-heading" data-cy="MeterImportHeading">
+    <span jhiTranslate="myApp.meterImport.home.title">Meter Imports</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="myApp.meterImport.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-meter-import"
+        [routerLink]="['/meter-import/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="myApp.meterImport.home.createLabel"> Create a new Meter Import </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="meterImports?.length === 0">
+    <span jhiTranslate="myApp.meterImport.home.notFound">No Meter Imports found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="meterImports && meterImports.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="provider">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.provider">Provider</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="utility">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.utility">Utility</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="namespace">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.namespace">Namespace</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="clientRef">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.clientRef">Client Ref</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="meterName">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.meterName">Meter Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="contactEmail">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.contactEmail">Contact Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ownership">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.ownership">Ownership</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="owner">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.owner">Owner</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="postcode">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.postcode">Postcode</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="addresslines">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.addresslines">Addresslines</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lat">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.lat">Lat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lon">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.lon">Lon</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="classifications">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meterImport.classifications">Classifications</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let meterImport of meterImports; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/meter-import', meterImport.id, 'view']">{{ meterImport.id }}</a>
+          </td>
+          <td>{{ meterImport.provider }}</td>
+          <td jhiTranslate="{{ 'myApp.Utility.' + meterImport.utility }}">{{ meterImport.utility }}</td>
+          <td>{{ meterImport.namespace }}</td>
+          <td>{{ meterImport.clientRef }}</td>
+          <td>{{ meterImport.meterName }}</td>
+          <td>{{ meterImport.contactEmail }}</td>
+          <td>{{ meterImport.ownership }}</td>
+          <td>{{ meterImport.owner }}</td>
+          <td>{{ meterImport.postcode }}</td>
+          <td>{{ meterImport.addresslines }}</td>
+          <td>{{ meterImport.lat }}</td>
+          <td>{{ meterImport.lon }}</td>
+          <td>{{ meterImport.classifications }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/meter-import', meterImport.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/meter-import', meterImport.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(meterImport)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="meter">
+      <h2 data-cy="meterDetailsHeading"><span jhiTranslate="myApp.meter.detail.title">Meter</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ meter.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.name">Name</span></dt>
+        <dd>
+          <span>{{ meter.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.amrWeek">Amr Week</span></dt>
+        <dd>
+          <span>{{ meter.amrWeek }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.amrYear">Amr Year</span></dt>
+        <dd>
+          <span>{{ meter.amrYear }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.utility">Utility</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Utility.' + meter.utility }}">{{ meter.utility }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.loadType">Load Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.LoadType.' + meter.loadType }}">{{ meter.loadType }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.price">Price</span></dt>
+        <dd>
+          <span>{{ meter.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.lastReading">Last Reading</span></dt>
+        <dd>
+          <span>{{ meter.lastReading | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.contactEmail">Contact Email</span></dt>
+        <dd>
+          <span>{{ meter.contactEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.parent">Parent</span></dt>
+        <dd>
+          <div *ngIf="meter.parent">
+            <a [routerLink]="['/meter', meter.parent.id, 'view']">{{ meter.parent.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.alternative">Alternative</span></dt>
+        <dd>
+          <div *ngIf="meter.alternative">
+            <a [routerLink]="['/meter', meter.alternative.id, 'view']">{{ meter.alternative.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.peer">Peer</span></dt>
+        <dd>
+          <div *ngIf="meter.peer">
+            <a [routerLink]="['/peer', meter.peer.id, 'view']">{{ meter.peer.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.provider">Provider</span></dt>
+        <dd>
+          <div *ngIf="meter.provider">
+            <a [routerLink]="['/provider', meter.provider.id, 'view']">{{ meter.provider.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myApp.meter.namespace">Namespace</span></dt>
+        <dd>
+          <div *ngIf="meter.namespace">
+            <a [routerLink]="['/namespace', meter.namespace.id, 'view']">{{ meter.namespace.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/meter', meter.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

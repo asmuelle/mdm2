@@ -1,0 +1,105 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-scope-heading" data-cy="ScopeCreateUpdateHeading" jhiTranslate="myApp.scope.home.createOrEditLabel">
+        Create or edit a Scope
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="myApp.scope.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.scope.meterDescription" for="field_meterDescription">Meter Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="meterDescription"
+            id="field_meterDescription"
+            data-cy="meterDescription"
+            formControlName="meterDescription"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.scope.meterName" for="field_meterName">Meter Name</label>
+          <input type="text" class="form-control" name="meterName" id="field_meterName" data-cy="meterName" formControlName="meterName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.scope.meterUtility" for="field_meterUtility">Meter Utility</label>
+          <input
+            type="text"
+            class="form-control"
+            name="meterUtility"
+            id="field_meterUtility"
+            data-cy="meterUtility"
+            formControlName="meterUtility"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.scope.pricePerMonth" for="field_pricePerMonth">Price Per Month</label>
+          <input
+            type="number"
+            class="form-control"
+            name="pricePerMonth"
+            id="field_pricePerMonth"
+            data-cy="pricePerMonth"
+            formControlName="pricePerMonth"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.scope.contract" for="field_contract">Contract</label>
+          <select
+            class="form-control"
+            id="field_contract"
+            data-cy="contract"
+            name="contract"
+            formControlName="contract"
+            [compareWith]="compareContract"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="contractOption" *ngFor="let contractOption of contractsSharedCollection">{{ contractOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.scope.service" for="field_service">Service</label>
+          <select
+            class="form-control"
+            id="field_service"
+            data-cy="service"
+            name="service"
+            formControlName="service"
+            [compareWith]="compareService"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="serviceOption" *ngFor="let serviceOption of servicesSharedCollection">{{ serviceOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -11,8 +11,8 @@ configurations {
 }
 
 dependencies {
-    implementation "org.postgresql:postgresql"
-    testImplementation "org.testcontainers:postgresql"
+    implementation "com.mysql:mysql-connector-j"
+    testImplementation "org.testcontainers:mysql"
 }
 
 ext {

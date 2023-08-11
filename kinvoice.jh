@@ -1,0 +1,210 @@
+
+application {
+  config {
+    baseName myApp,
+    applicationType monolith,
+    packageName com.myapp,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    clientFramework angular
+  }
+  entities *
+}
+
+entity Customer {
+   id Long
+   name String
+}
+
+entity Contract {
+   id Long
+   name String
+   customerContactName String
+   customerContactAddresslines String
+   customerPurchaseNumber String
+   kwiqlyOrderNumber String
+   basePricePerMonth Integer // e.g. Bulk Price
+   startDate Date
+   endDate Date
+}
+
+entity Service {
+   id Long
+   name String
+}
+
+entity Scope {
+   id Long
+   meterDescription String //e.g. Site Name
+   meterName String
+   meterUtility String
+   pricePerMonth Integer
+}
+
+relationship OneToMany {
+  Customer to Contract
+  Contract to Scope
+  Service to Scope
+}
+enum Utility {
+  GAS, ELECTRICITY, WATER, HEAT, SOLARHEAT, SOLARPOWER, WIND, COGENPOWER
+}
+
+enum Stage {
+  PROSPECT, METERS_LISTED, DEMO, TRIAL, PRODUCTION, TERMINATED
+}
+
+enum LoadType {
+  CHILL, CHILL_PROCESS, HEAT, HEAT_PROCESS, CHILL_HEAT_PROCESS, PROCESS_ONLY
+}
+
+entity Peer {
+  name String,
+  utility Utility,
+  loadType LoadType
+}
+
+entity MeterImport {
+   provider String,
+   utility Utility,
+   namespace String,
+   clientRef String,
+   meterName String,
+   contactEmail String,
+   ownership String,
+   owner String,
+   postcode String,
+   addresslines String,
+   lat Float,
+   lon Float,
+   classifications String
+}
+
+
+entity Meter {
+    name String,
+    amrWeek Integer,
+    amrYear Integer,
+    utility Utility,
+    loadType LoadType,
+    price Float,
+    lastReading LocalDate,
+    contactEmail String
+}
+
+entity Provider {
+    name String required unique
+}
+
+entity PropertyType {
+    name String required unique,
+    pattern String required
+}
+
+entity OwnershipProperty {
+    value String required
+}
+
+entity Namespace {
+    name String required unique
+}
+
+entity Ownership {
+    name String required,
+    clientRef String,
+    startDate LocalDate,
+    endDate LocalDate,
+}
+
+entity WasteTrackingParameters {
+    name String required unique,
+    wasteIssueCreationThreshold  Float ,
+    maxWasteIssueCreationRate Integer,
+    maxActiveWasteIssues Integer,
+    autoCreateWasteIssues Boolean
+}
+
+entity Address {
+   city String,
+   postcode String,
+   addresslines String
+   lat Float,
+   lon Float
+}
+
+entity Country {
+  name String required unique,
+  isocode String required unique
+}
+
+entity Owner {
+  name String required unique,
+  fullName String,
+  ownerKey String,
+  ownerGroup String,
+  meters Integer,
+  lastWeek Integer,
+  beforeLastWeek Integer,
+  amr Integer,
+  lastYear Integer,
+
+  contactEmail String,
+  electricityPrice Float,
+  gasPrice Float,
+  gasStage Stage   ,
+  electricityStage Stage   ,
+  waterStage Stage   ,
+  heatStage Stage  ,
+  solarHeat Stage   ,
+  solarPowerStage Stage ,
+  windStage Stage   ,
+  cogenPowerStage Stage ,
+
+}
+
+
+
+entity OwnershipClassification{
+   name String
+}
+
+relationship OneToMany {
+    Owner to Peer{owner}
+    Peer to Meter{peer}
+    Provider to Meter{provider}
+    Namespace to Meter{namespace}
+    PropertyType to OwnershipProperty{type}
+    Ownership to OwnershipProperty{ownership}
+    Owner to Ownership{owner}
+
+}
+
+relationship OneToOne {
+   Meter{parent} to Meter
+   Meter{alternative} to Meter
+   Address{ownership} to Ownership{address}
+   Address{country} to Country
+}
+
+relationship ManyToMany {
+     Ownership{meters} to Meter{ownerships}
+     Ownership{classifications} to OwnershipClassification{ownerships}
+}
+
+filter Peer
+filter Meter
+filter Ownership
+filter OwnershipClassification
+
+paginate Meter with infinite-scroll
+paginate Ownership with infinite-scroll
+
+
+
+// Set service options to all
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
+    

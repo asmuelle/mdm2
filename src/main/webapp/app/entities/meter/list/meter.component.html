@@ -1,0 +1,187 @@
+<div>
+  <h2 id="page-heading" data-cy="MeterHeading">
+    <span jhiTranslate="myApp.meter.home.title">Meters</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="myApp.meter.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-meter"
+        [routerLink]="['/meter/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="myApp.meter.home.createLabel"> Create a new Meter </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="meters?.length === 0">
+    <span jhiTranslate="myApp.meter.home.notFound">No Meters found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="meters && meters.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amrWeek">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.amrWeek">Amr Week</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amrYear">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.amrYear">Amr Year</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="utility">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.utility">Utility</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loadType">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.loadType">Load Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="price">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.price">Price</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastReading">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.lastReading">Last Reading</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="contactEmail">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.contactEmail">Contact Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="parent.id">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.parent">Parent</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="alternative.id">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.alternative">Alternative</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="peer.id">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.peer">Peer</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="provider.id">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.provider">Provider</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="namespace.id">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.meter.namespace">Namespace</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let meter of meters; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/meter', meter.id, 'view']">{{ meter.id }}</a>
+          </td>
+          <td>{{ meter.name }}</td>
+          <td>{{ meter.amrWeek }}</td>
+          <td>{{ meter.amrYear }}</td>
+          <td jhiTranslate="{{ 'myApp.Utility.' + meter.utility }}">{{ meter.utility }}</td>
+          <td jhiTranslate="{{ 'myApp.LoadType.' + meter.loadType }}">{{ meter.loadType }}</td>
+          <td>{{ meter.price }}</td>
+          <td>{{ meter.lastReading | formatMediumDate }}</td>
+          <td>{{ meter.contactEmail }}</td>
+          <td>
+            <div *ngIf="meter.parent">
+              <a [routerLink]="['/meter', meter.parent.id, 'view']">{{ meter.parent.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="meter.alternative">
+              <a [routerLink]="['/meter', meter.alternative.id, 'view']">{{ meter.alternative.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="meter.peer">
+              <a [routerLink]="['/peer', meter.peer.id, 'view']">{{ meter.peer.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="meter.provider">
+              <a [routerLink]="['/provider', meter.provider.id, 'view']">{{ meter.provider.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="meter.namespace">
+              <a [routerLink]="['/namespace', meter.namespace.id, 'view']">{{ meter.namespace.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/meter', meter.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/meter', meter.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(meter)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

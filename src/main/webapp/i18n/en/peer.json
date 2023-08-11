@@ -1,0 +1,28 @@
+{
+  "myApp": {
+    "peer": {
+      "home": {
+        "title": "Peers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Peer",
+        "createOrEditLabel": "Create or edit a Peer",
+        "notFound": "No Peers found"
+      },
+      "created": "A new Peer is created with identifier {{ param }}",
+      "updated": "A Peer is updated with identifier {{ param }}",
+      "deleted": "A Peer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Peer {{ id }}?"
+      },
+      "detail": {
+        "title": "Peer"
+      },
+      "id": "ID",
+      "name": "Name",
+      "utility": "Utility",
+      "loadType": "Load Type",
+      "meter": "Meter",
+      "owner": "Owner"
+    }
+  }
+}

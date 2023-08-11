@@ -1,0 +1,24 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201320",
+  "entityTableName": "ownership_classification",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "OwnershipClassification",
+  "relationships": [
+    {
+      "otherEntityName": "ownership",
+      "otherEntityRelationshipName": "classifications",
+      "relationshipName": "ownerships",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

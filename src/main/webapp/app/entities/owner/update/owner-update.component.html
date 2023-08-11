@@ -1,0 +1,209 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-owner-heading" data-cy="OwnerCreateUpdateHeading" jhiTranslate="myApp.owner.home.createOrEditLabel">
+        Create or edit a Owner
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.fullName" for="field_fullName">Full Name</label>
+          <input type="text" class="form-control" name="fullName" id="field_fullName" data-cy="fullName" formControlName="fullName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.ownerKey" for="field_ownerKey">Owner Key</label>
+          <input type="text" class="form-control" name="ownerKey" id="field_ownerKey" data-cy="ownerKey" formControlName="ownerKey" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.ownerGroup" for="field_ownerGroup">Owner Group</label>
+          <input
+            type="text"
+            class="form-control"
+            name="ownerGroup"
+            id="field_ownerGroup"
+            data-cy="ownerGroup"
+            formControlName="ownerGroup"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.meters" for="field_meters">Meters</label>
+          <input type="number" class="form-control" name="meters" id="field_meters" data-cy="meters" formControlName="meters" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.lastWeek" for="field_lastWeek">Last Week</label>
+          <input type="number" class="form-control" name="lastWeek" id="field_lastWeek" data-cy="lastWeek" formControlName="lastWeek" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.beforeLastWeek" for="field_beforeLastWeek">Before Last Week</label>
+          <input
+            type="number"
+            class="form-control"
+            name="beforeLastWeek"
+            id="field_beforeLastWeek"
+            data-cy="beforeLastWeek"
+            formControlName="beforeLastWeek"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.amr" for="field_amr">Amr</label>
+          <input type="number" class="form-control" name="amr" id="field_amr" data-cy="amr" formControlName="amr" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.lastYear" for="field_lastYear">Last Year</label>
+          <input type="number" class="form-control" name="lastYear" id="field_lastYear" data-cy="lastYear" formControlName="lastYear" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.contactEmail" for="field_contactEmail">Contact Email</label>
+          <input
+            type="text"
+            class="form-control"
+            name="contactEmail"
+            id="field_contactEmail"
+            data-cy="contactEmail"
+            formControlName="contactEmail"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.electricityPrice" for="field_electricityPrice">Electricity Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="electricityPrice"
+            id="field_electricityPrice"
+            data-cy="electricityPrice"
+            formControlName="electricityPrice"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.gasPrice" for="field_gasPrice">Gas Price</label>
+          <input type="number" class="form-control" name="gasPrice" id="field_gasPrice" data-cy="gasPrice" formControlName="gasPrice" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.gasStage" for="field_gasStage">Gas Stage</label>
+          <select class="form-control" name="gasStage" formControlName="gasStage" id="field_gasStage" data-cy="gasStage">
+            <option [ngValue]="null">{{ 'myApp.Stage.null' | translate }}</option>
+            <option *ngFor="let stage of stageValues" [value]="stage">{{ 'myApp.Stage.' + stage | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.electricityStage" for="field_electricityStage">Electricity Stage</label>
+          <select
+            class="form-control"
+            name="electricityStage"
+            formControlName="electricityStage"
+            id="field_electricityStage"
+            data-cy="electricityStage"
+          >
+            <option [ngValue]="null">{{ 'myApp.Stage.null' | translate }}</option>
+            <option *ngFor="let stage of stageValues" [value]="stage">{{ 'myApp.Stage.' + stage | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.waterStage" for="field_waterStage">Water Stage</label>
+          <select class="form-control" name="waterStage" formControlName="waterStage" id="field_waterStage" data-cy="waterStage">
+            <option [ngValue]="null">{{ 'myApp.Stage.null' | translate }}</option>
+            <option *ngFor="let stage of stageValues" [value]="stage">{{ 'myApp.Stage.' + stage | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.heatStage" for="field_heatStage">Heat Stage</label>
+          <select class="form-control" name="heatStage" formControlName="heatStage" id="field_heatStage" data-cy="heatStage">
+            <option [ngValue]="null">{{ 'myApp.Stage.null' | translate }}</option>
+            <option *ngFor="let stage of stageValues" [value]="stage">{{ 'myApp.Stage.' + stage | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.solarHeat" for="field_solarHeat">Solar Heat</label>
+          <select class="form-control" name="solarHeat" formControlName="solarHeat" id="field_solarHeat" data-cy="solarHeat">
+            <option [ngValue]="null">{{ 'myApp.Stage.null' | translate }}</option>
+            <option *ngFor="let stage of stageValues" [value]="stage">{{ 'myApp.Stage.' + stage | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.solarPowerStage" for="field_solarPowerStage">Solar Power Stage</label>
+          <select
+            class="form-control"
+            name="solarPowerStage"
+            formControlName="solarPowerStage"
+            id="field_solarPowerStage"
+            data-cy="solarPowerStage"
+          >
+            <option [ngValue]="null">{{ 'myApp.Stage.null' | translate }}</option>
+            <option *ngFor="let stage of stageValues" [value]="stage">{{ 'myApp.Stage.' + stage | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.windStage" for="field_windStage">Wind Stage</label>
+          <select class="form-control" name="windStage" formControlName="windStage" id="field_windStage" data-cy="windStage">
+            <option [ngValue]="null">{{ 'myApp.Stage.null' | translate }}</option>
+            <option *ngFor="let stage of stageValues" [value]="stage">{{ 'myApp.Stage.' + stage | translate }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="myApp.owner.cogenPowerStage" for="field_cogenPowerStage">Cogen Power Stage</label>
+          <select
+            class="form-control"
+            name="cogenPowerStage"
+            formControlName="cogenPowerStage"
+            id="field_cogenPowerStage"
+            data-cy="cogenPowerStage"
+          >
+            <option [ngValue]="null">{{ 'myApp.Stage.null' | translate }}</option>
+            <option *ngFor="let stage of stageValues" [value]="stage">{{ 'myApp.Stage.' + stage | translate }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

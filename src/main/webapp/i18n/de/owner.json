@@ -1,0 +1,45 @@
+{
+  "myApp": {
+    "owner": {
+      "home": {
+        "title": "Owners",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Owner erstellen",
+        "createOrEditLabel": "Owner erstellen oder bearbeiten",
+        "notFound": "Keine Owners gefunden"
+      },
+      "created": "Owner erstellt mit ID {{ param }}",
+      "updated": "Owner aktualisiert mit ID {{ param }}",
+      "deleted": "Owner gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Owner {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Owner"
+      },
+      "id": "ID",
+      "name": "Name",
+      "fullName": "Full Name",
+      "ownerKey": "Owner Key",
+      "ownerGroup": "Owner Group",
+      "meters": "Meters",
+      "lastWeek": "Last Week",
+      "beforeLastWeek": "Before Last Week",
+      "amr": "Amr",
+      "lastYear": "Last Year",
+      "contactEmail": "Contact Email",
+      "electricityPrice": "Electricity Price",
+      "gasPrice": "Gas Price",
+      "gasStage": "Gas Stage",
+      "electricityStage": "Electricity Stage",
+      "waterStage": "Water Stage",
+      "heatStage": "Heat Stage",
+      "solarHeat": "Solar Heat",
+      "solarPowerStage": "Solar Power Stage",
+      "windStage": "Wind Stage",
+      "cogenPowerStage": "Cogen Power Stage",
+      "peer": "Peer",
+      "ownership": "Ownership"
+    }
+  }
+}

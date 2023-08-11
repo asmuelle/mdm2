@@ -1,0 +1,32 @@
+{
+  "myApp": {
+    "ownership": {
+      "home": {
+        "title": "Ownerships",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Ownership erstellen",
+        "createOrEditLabel": "Ownership erstellen oder bearbeiten",
+        "notFound": "Keine Ownerships gefunden"
+      },
+      "created": "Ownership erstellt mit ID {{ param }}",
+      "updated": "Ownership aktualisiert mit ID {{ param }}",
+      "deleted": "Ownership gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Ownership {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Ownership"
+      },
+      "id": "ID",
+      "name": "Name",
+      "clientRef": "Client Ref",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "ownershipProperty": "Ownership Property",
+      "meters": "Meters",
+      "classifications": "Classifications",
+      "address": "Address",
+      "owner": "Owner"
+    }
+  }
+}

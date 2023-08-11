@@ -1,0 +1,45 @@
+{
+  "myApp": {
+    "owner": {
+      "home": {
+        "title": "Owners",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Owner",
+        "createOrEditLabel": "Create or edit a Owner",
+        "notFound": "No Owners found"
+      },
+      "created": "A new Owner is created with identifier {{ param }}",
+      "updated": "A Owner is updated with identifier {{ param }}",
+      "deleted": "A Owner is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Owner {{ id }}?"
+      },
+      "detail": {
+        "title": "Owner"
+      },
+      "id": "ID",
+      "name": "Name",
+      "fullName": "Full Name",
+      "ownerKey": "Owner Key",
+      "ownerGroup": "Owner Group",
+      "meters": "Meters",
+      "lastWeek": "Last Week",
+      "beforeLastWeek": "Before Last Week",
+      "amr": "Amr",
+      "lastYear": "Last Year",
+      "contactEmail": "Contact Email",
+      "electricityPrice": "Electricity Price",
+      "gasPrice": "Gas Price",
+      "gasStage": "Gas Stage",
+      "electricityStage": "Electricity Stage",
+      "waterStage": "Water Stage",
+      "heatStage": "Heat Stage",
+      "solarHeat": "Solar Heat",
+      "solarPowerStage": "Solar Power Stage",
+      "windStage": "Wind Stage",
+      "cogenPowerStage": "Cogen Power Stage",
+      "peer": "Peer",
+      "ownership": "Ownership"
+    }
+  }
+}

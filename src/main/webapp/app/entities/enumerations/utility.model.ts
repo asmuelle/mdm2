@@ -1,0 +1,17 @@
+export enum Utility {
+  GAS = 'GAS',
+
+  ELECTRICITY = 'ELECTRICITY',
+
+  WATER = 'WATER',
+
+  HEAT = 'HEAT',
+
+  SOLARHEAT = 'SOLARHEAT',
+
+  SOLARPOWER = 'SOLARPOWER',
+
+  WIND = 'WIND',
+
+  COGENPOWER = 'COGENPOWER',
+}

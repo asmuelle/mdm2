@@ -1,0 +1,211 @@
+<div>
+  <h2 id="page-heading" data-cy="OwnerHeading">
+    <span jhiTranslate="myApp.owner.home.title">Owners</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="myApp.owner.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-owner"
+        [routerLink]="['/owner/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="myApp.owner.home.createLabel"> Create a new Owner </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="owners?.length === 0">
+    <span jhiTranslate="myApp.owner.home.notFound">No Owners found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="owners && owners.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="fullName">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.fullName">Full Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ownerKey">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.ownerKey">Owner Key</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ownerGroup">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.ownerGroup">Owner Group</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="meters">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.meters">Meters</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastWeek">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.lastWeek">Last Week</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="beforeLastWeek">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.beforeLastWeek">Before Last Week</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amr">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.amr">Amr</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastYear">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.lastYear">Last Year</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="contactEmail">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.contactEmail">Contact Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="electricityPrice">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.electricityPrice">Electricity Price</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="gasPrice">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.gasPrice">Gas Price</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="gasStage">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.gasStage">Gas Stage</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="electricityStage">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.electricityStage">Electricity Stage</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="waterStage">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.waterStage">Water Stage</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="heatStage">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.heatStage">Heat Stage</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="solarHeat">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.solarHeat">Solar Heat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="solarPowerStage">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.solarPowerStage">Solar Power Stage</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="windStage">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.windStage">Wind Stage</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cogenPowerStage">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.owner.cogenPowerStage">Cogen Power Stage</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let owner of owners; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/owner', owner.id, 'view']">{{ owner.id }}</a>
+          </td>
+          <td>{{ owner.name }}</td>
+          <td>{{ owner.fullName }}</td>
+          <td>{{ owner.ownerKey }}</td>
+          <td>{{ owner.ownerGroup }}</td>
+          <td>{{ owner.meters }}</td>
+          <td>{{ owner.lastWeek }}</td>
+          <td>{{ owner.beforeLastWeek }}</td>
+          <td>{{ owner.amr }}</td>
+          <td>{{ owner.lastYear }}</td>
+          <td>{{ owner.contactEmail }}</td>
+          <td>{{ owner.electricityPrice }}</td>
+          <td>{{ owner.gasPrice }}</td>
+          <td jhiTranslate="{{ 'myApp.Stage.' + owner.gasStage }}">{{ owner.gasStage }}</td>
+          <td jhiTranslate="{{ 'myApp.Stage.' + owner.electricityStage }}">{{ owner.electricityStage }}</td>
+          <td jhiTranslate="{{ 'myApp.Stage.' + owner.waterStage }}">{{ owner.waterStage }}</td>
+          <td jhiTranslate="{{ 'myApp.Stage.' + owner.heatStage }}">{{ owner.heatStage }}</td>
+          <td jhiTranslate="{{ 'myApp.Stage.' + owner.solarHeat }}">{{ owner.solarHeat }}</td>
+          <td jhiTranslate="{{ 'myApp.Stage.' + owner.solarPowerStage }}">{{ owner.solarPowerStage }}</td>
+          <td jhiTranslate="{{ 'myApp.Stage.' + owner.windStage }}">{{ owner.windStage }}</td>
+          <td jhiTranslate="{{ 'myApp.Stage.' + owner.cogenPowerStage }}">{{ owner.cogenPowerStage }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/owner', owner.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/owner', owner.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(owner)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

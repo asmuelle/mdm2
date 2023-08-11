@@ -1,0 +1,46 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201307",
+  "entityTableName": "scope",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "meterDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "meterName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "meterUtility",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pricePerMonth",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Scope",
+  "relationships": [
+    {
+      "otherEntityName": "contract",
+      "otherEntityRelationshipName": "scope",
+      "relationshipName": "contract",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "service",
+      "otherEntityRelationshipName": "scope",
+      "relationshipName": "service",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

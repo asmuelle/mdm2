@@ -1,0 +1,27 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201304",
+  "entityTableName": "customer",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Customer",
+  "relationships": [
+    {
+      "otherEntityName": "contract",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "contract",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ownership">
+      <h2 data-cy="ownershipDetailsHeading"><span jhiTranslate="myApp.ownership.detail.title">Ownership</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ownership.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.ownership.name">Name</span></dt>
+        <dd>
+          <span>{{ ownership.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.ownership.clientRef">Client Ref</span></dt>
+        <dd>
+          <span>{{ ownership.clientRef }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.ownership.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ ownership.startDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.ownership.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ ownership.endDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.ownership.meters">Meters</span></dt>
+        <dd>
+          <span *ngFor="let meters of ownership.meters; let last = last">
+            <a [routerLink]="['/meter', meters.id, 'view']">{{ meters.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="myApp.ownership.classifications">Classifications</span></dt>
+        <dd>
+          <span *ngFor="let classifications of ownership.classifications; let last = last">
+            <a [routerLink]="['/ownership-classification', classifications.id, 'view']">{{ classifications.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="myApp.ownership.owner">Owner</span></dt>
+        <dd>
+          <div *ngIf="ownership.owner">
+            <a [routerLink]="['/owner', ownership.owner.id, 'view']">{{ ownership.owner.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ownership', ownership.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

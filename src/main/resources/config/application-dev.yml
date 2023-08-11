@@ -18,7 +18,7 @@ logging:
     ROOT: DEBUG
     tech.jhipster: DEBUG
     org.hibernate.SQL: DEBUG
-    com.kwiqly.mdm: DEBUG
+    com.myapp: DEBUG
 
 spring:
   devtools:
@@ -32,8 +32,8 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./build/h2db/db/mdm2;DB_CLOSE_DELAY=-1
-    username: mdm2
+    url: jdbc:h2:file:./build/h2db/db/myapp;DB_CLOSE_DELAY=-1;MODE=MYSQL
+    username: myApp
     password:
     hikari:
       poolName: Hikari
@@ -75,6 +75,14 @@ jhipster:
     exposed-headers: 'Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params'
     allow-credentials: true
     max-age: 1800
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+        base64-secret: MzUzNDIzNThkYTE3M2Q0ZDM3ZjFjODgzYTU2ZDFjOTE1YzE3NzkwOGJmODQ2ZGE1NTE5ZjU1ZGEwNDg3YTZhYjNlMGRhZDJmYmMwOGUyNTEyM2IyODU3N2Q4OWI1MmQ4MjE5YmNlNTc0NWQyODgzOWIyNjVhYTEwMzYxYzlmNTQ=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000
   logging:
     use-json-format: false # By default, logs are not in Json format
     logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration

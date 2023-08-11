@@ -1,0 +1,29 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230811201313",
+  "entityTableName": "ownership_property",
+  "fields": [
+    {
+      "fieldName": "value",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "OwnershipProperty",
+  "relationships": [
+    {
+      "otherEntityName": "propertyType",
+      "relationshipName": "type",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "ownership",
+      "relationshipName": "ownership",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

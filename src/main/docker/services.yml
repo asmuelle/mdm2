@@ -1,11 +1,7 @@
 # This configuration is intended for development purpose, it's **your** responsibility to harden it for production
-name: mdm2
+name: myapp
 services:
-  postgresql:
+  mysql:
     extends:
-      file: ./postgresql.yml
-      service: postgresql
-  keycloak:
-    extends:
-      file: ./keycloak.yml
-      service: keycloak
+      file: ./mysql.yml
+      service: mysql

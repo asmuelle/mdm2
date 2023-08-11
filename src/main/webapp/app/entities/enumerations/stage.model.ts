@@ -1,0 +1,13 @@
+export enum Stage {
+  PROSPECT = 'PROSPECT',
+
+  METERS_LISTED = 'METERS_LISTED',
+
+  DEMO = 'DEMO',
+
+  TRIAL = 'TRIAL',
+
+  PRODUCTION = 'PRODUCTION',
+
+  TERMINATED = 'TERMINATED',
+}

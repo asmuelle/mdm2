@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Scope.
+    -->
+    <changeSet id="20230811201307-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="contract_id"
+                                 baseTableName="scope"
+                                 constraintName="fk_scope__contract_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contract"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="service_id"
+                                 baseTableName="scope"
+                                 constraintName="fk_scope__service_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service"
+                                 />
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,103 @@
+<div>
+  <h2 id="page-heading" data-cy="PeerHeading">
+    <span jhiTranslate="myApp.peer.home.title">Peers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="myApp.peer.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-peer"
+        [routerLink]="['/peer/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="myApp.peer.home.createLabel"> Create a new Peer </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="peers?.length === 0">
+    <span jhiTranslate="myApp.peer.home.notFound">No Peers found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="peers && peers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.peer.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="utility">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.peer.utility">Utility</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loadType">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.peer.loadType">Load Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="owner.id">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.peer.owner">Owner</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let peer of peers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/peer', peer.id, 'view']">{{ peer.id }}</a>
+          </td>
+          <td>{{ peer.name }}</td>
+          <td jhiTranslate="{{ 'myApp.Utility.' + peer.utility }}">{{ peer.utility }}</td>
+          <td jhiTranslate="{{ 'myApp.LoadType.' + peer.loadType }}">{{ peer.loadType }}</td>
+          <td>
+            <div *ngIf="peer.owner">
+              <a [routerLink]="['/owner', peer.owner.id, 'view']">{{ peer.owner.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/peer', peer.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/peer', peer.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(peer)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

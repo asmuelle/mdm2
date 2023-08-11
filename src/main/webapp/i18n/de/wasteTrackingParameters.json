@@ -1,0 +1,28 @@
+{
+  "myApp": {
+    "wasteTrackingParameters": {
+      "home": {
+        "title": "Waste Tracking Parameters",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Waste Tracking Parameters erstellen",
+        "createOrEditLabel": "Waste Tracking Parameters erstellen oder bearbeiten",
+        "notFound": "Keine Waste Tracking Parameters gefunden"
+      },
+      "created": "Waste Tracking Parameters erstellt mit ID {{ param }}",
+      "updated": "Waste Tracking Parameters aktualisiert mit ID {{ param }}",
+      "deleted": "Waste Tracking Parameters gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Waste Tracking Parameters {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Waste Tracking Parameters"
+      },
+      "id": "ID",
+      "name": "Name",
+      "wasteIssueCreationThreshold": "Waste Issue Creation Threshold",
+      "maxWasteIssueCreationRate": "Max Waste Issue Creation Rate",
+      "maxActiveWasteIssues": "Max Active Waste Issues",
+      "autoCreateWasteIssues": "Auto Create Waste Issues"
+    }
+  }
+}

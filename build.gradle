@@ -16,7 +16,7 @@ plugins {
     // jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
-group = "com.kwiqly.mdm"
+group = "com.myapp"
 version = "0.0.1-SNAPSHOT"
 
 description = ""
@@ -92,7 +92,7 @@ eclipse {
 defaultTasks "bootRun"
 
 springBoot {
-    mainClass = "com.kwiqly.mdm.Mdm2App"
+    mainClass = "com.myapp.MyApp"
 }
 
 test {
@@ -175,7 +175,6 @@ dependencies {
     implementation "org.springdoc:springdoc-openapi-starter-webmvc-api"
     implementation "com.zaxxer:HikariCP"
     implementation "org.apache.commons:commons-lang3"
-    implementation "com.github.ben-manes.caffeine:caffeine"
     annotationProcessor "org.hibernate.orm:hibernate-jpamodelgen:${hibernateVersion}"
     implementation "org.hibernate.orm:hibernate-core"
     implementation "org.hibernate.validator:hibernate-validator"
@@ -188,6 +187,7 @@ dependencies {
     testImplementation "org.testcontainers:jdbc"
     implementation "org.springframework.boot:spring-boot-starter-logging"
     implementation "org.springframework.boot:spring-boot-starter-mail"
+    implementation "org.springframework.boot:spring-boot-starter-security"
     implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
     implementation "org.springframework.boot:spring-boot-starter-web"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
@@ -200,7 +200,6 @@ dependencies {
         exclude group: "org.slf4j", module: "slf4j-api"
     }
     implementation "org.springframework.boot:spring-boot-starter-undertow"
-    implementation "org.springframework.boot:spring-boot-starter-oauth2-client"
     implementation "org.springframework.boot:spring-boot-starter-oauth2-resource-server"
     implementation "org.springframework.security:spring-security-data"
     implementation "io.micrometer:micrometer-registry-prometheus"
