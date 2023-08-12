@@ -99,11 +99,6 @@ public class MeterServiceImpl implements MeterService {
      *  Get all the meters where Meter is {@code null}.
      *  @return the list of entities.
      */
-    @Transactional(readOnly = true)
-    public List<Meter> findAllWhereMeterIsNull() {
-        log.debug("Request to get all meters where Meter is null");
-        return StreamSupport.stream(meterRepository.findAll().spliterator(), false).filter(meter -> meter.getMeter() == null).toList();
-    }
 
     @Override
     @Transactional(readOnly = true)

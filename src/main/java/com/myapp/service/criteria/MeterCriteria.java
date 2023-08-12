@@ -89,8 +89,6 @@ public class MeterCriteria implements Serializable, Criteria {
 
     private LongFilter meterId;
 
-    private LongFilter meterId;
-
     private Boolean distinct;
 
     public MeterCriteria() {}
@@ -344,21 +342,6 @@ public class MeterCriteria implements Serializable, Criteria {
 
     public void setOwnershipsId(LongFilter ownershipsId) {
         this.ownershipsId = ownershipsId;
-    }
-
-    public LongFilter getMeterId() {
-        return meterId;
-    }
-
-    public LongFilter meterId() {
-        if (meterId == null) {
-            meterId = new LongFilter();
-        }
-        return meterId;
-    }
-
-    public void setMeterId(LongFilter meterId) {
-        this.meterId = meterId;
     }
 
     public LongFilter getMeterId() {

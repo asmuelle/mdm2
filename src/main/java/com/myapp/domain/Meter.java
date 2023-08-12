@@ -90,23 +90,6 @@ public class Meter implements Serializable {
         value = { "parent", "alternative", "peer", "provider", "namespace", "ownerships", "meter", "meter" },
         allowSetters = true
     )
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "parent")
-    @JsonIgnoreProperties(
-        value = { "parent", "alternative", "peer", "provider", "namespace", "ownerships", "meter", "meter" },
-        allowSetters = true
-    )
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "alternative")
-    private Meter meter;
-
-    @JsonIgnoreProperties(
-        value = { "parent", "alternative", "peer", "provider", "namespace", "ownerships", "meter", "meter" },
-        allowSetters = true
-    )
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "parent")
-    @JsonIgnoreProperties(
-        value = { "parent", "alternative", "peer", "provider", "namespace", "ownerships", "meter", "meter" },
-        allowSetters = true
-    )
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "alternative")
     private Meter meter;
 
@@ -322,25 +305,6 @@ public class Meter implements Serializable {
     public Meter removeOwnerships(Ownership ownership) {
         this.ownerships.remove(ownership);
         ownership.getMeters().remove(this);
-        return this;
-    }
-
-    public Meter getMeter() {
-        return this.meter;
-    }
-
-    public void setMeter(Meter meter) {
-        if (this.meter != null) {
-            this.meter.setParent(null);
-        }
-        if (meter != null) {
-            meter.setParent(this);
-        }
-        this.meter = meter;
-    }
-
-    public Meter meter(Meter meter) {
-        this.setMeter(meter);
         return this;
     }
 

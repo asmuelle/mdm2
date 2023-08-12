@@ -144,13 +144,13 @@ spring:
         - USER
   task:
     execution:
-      thread-name-prefix: my-app-task-
+      thread-name-prefix: mdm-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: my-app-scheduling-
+      thread-name-prefix: mdm-scheduling-
       pool:
         size: 2
   thymeleaf:

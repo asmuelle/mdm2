@@ -52,8 +52,7 @@ public interface MeterService {
      * Get all the Meter where Meter is {@code null}.
      *
      * @return the {@link List} of entities.
-     */
-    List<Meter> findAllWhereMeterIsNull();
+
 
     /**
      * Get the "id" meter.

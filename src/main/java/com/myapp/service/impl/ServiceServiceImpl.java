@@ -8,13 +8,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service Implementation for managing {@link Service}.
  */
-@Service
+@org.springframework.stereotype.Service
 @Transactional
 public class ServiceServiceImpl implements ServiceService {
 

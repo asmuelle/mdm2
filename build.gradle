@@ -16,7 +16,7 @@ plugins {
     // jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
-group = "com.myapp"
+group = "com.kwiqly.mdm"
 version = "0.0.1-SNAPSHOT"
 
 description = ""
@@ -204,6 +204,9 @@ dependencies {
     implementation "org.springframework.security:spring-security-data"
     implementation "io.micrometer:micrometer-registry-prometheus"
     implementation "io.dropwizard.metrics:metrics-core"
+    implementation group: 'org.springframework.security', name: 'spring-security-oauth2-client', version: '6.1.2'
+    implementation group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '3.1.8'
+
     // jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
 
